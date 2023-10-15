@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/images/favicon.webp">
+  
+  <title>ArchLinux_gui安装指南 | korin的个人博客</title>
+  
+  <meta name="author" content="korin" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="ArchLinux, linux" />
+  
+  <meta name="description" content="官方文档 参考-米V米 准备工作下载ArchLinux_gui下载地址 不要下载pure版本，pure是纯净版，不自带中文字体，会出现中文乱码   测试版本：archlinux-gui-plasma-2022.07-x86_64.iso 制作启动U盘下载balenaEtcher Flash from file选择ArchLinux_gui的iso文件 Select target选择目标U盘 BIO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux_gui安装指南">
+<meta property="og:url" content="http://korin5.github.io/%E6%95%99%E7%A8%8B/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+<meta property="og:site_name" content="korin的个人博客">
+<meta property="og:description" content="官方文档 参考-米V米 准备工作下载ArchLinux_gui下载地址 不要下载pure版本，pure是纯净版，不自带中文字体，会出现中文乱码   测试版本：archlinux-gui-plasma-2022.07-x86_64.iso 制作启动U盘下载balenaEtcher Flash from file选择ArchLinux_gui的iso文件 Select target选择目标U盘 BIO">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://korin5.github.io/%E6%95%99%E7%A8%8B/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/assets/blogcovers/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97.webp">
+<meta property="article:published_time" content="2023-01-20T13:21:00.000Z">
+<meta property="article:modified_time" content="2023-09-12T13:17:17.334Z">
+<meta property="article:author" content="korin">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="ArchLinux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://korin5.github.io/%E6%95%99%E7%A8%8B/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/assets/blogcovers/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97.webp">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" media="all"></script>
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-color-dark.min.css" media="(prefers-color-scheme: dark)"></script>
+    <script src="/js/kr-dark.min.js"></script>
+  
+  
+    <link rel="stylesheet" id="highlight-css" href="/css/highlight/night-eighties.min.css" media="all"></script>
+  
+  <link rel="stylesheet" id="fontawe-css" href="/vendors/font-awesome@4.7.0/css/font-awesome.min.css" media="all"></script>
+  <link rel="stylesheet" id="nprogress-css" href="/vendors/nprogress@0.2.0/nprogress.css" media="all"></script>
+  
+  
+  
+    <link rel="stylesheet" href="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"></script>
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="/vendors/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+  
+  <style>
+    
+    
+  </style>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <header id="kratos-desktop-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="nav-header">
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li>
+                                            
+                                                <a href="/">
+                                            
+                                                
+                                                    <i class="fa fa-home"></i>
+                                                
+                                                首页
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/archives/">
+                                            
+                                                
+                                                    <i class="fa fa-archive"></i>
+                                                
+                                                文库
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/about/">
+                                            
+                                                
+                                                    <i class="fa fa-info-circle"></i>
+                                                
+                                                关于
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                        <li>
+                                            
+                                                <a href="/search/">
+                                            
+                                                
+                                                    <i class="fa fa-search"></i>
+                                                
+                                                搜索
+                                            </a>
+                                            
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <header id="kratos-mobile-topnav" class="kratos-topnav">
+                <div class="container">
+                    <div class="color-logo"><a href="/">korin的个人博客</a></div>
+                    <div class="nav-toggle">
+                        <a class="kratos-nav-toggle js-kratos-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>korin的个人博客</h2> <br />
+                        <span>留下一些宝贵的记忆</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div id="main" class="row">
+                    
+
+        
+
+            <section class="col-md-8">
+
+        
+
+            <article itemscope itemtype="https://schema.org/Article">
+    
+    <link itemprop="mainEntityOfPage" href="http://korin5.github.io/%E6%95%99%E7%A8%8B/ArchLinux_gui%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/">
+    <div class="kratos-hentry kratos-post-inner clearfix">
+        <header class="kratos-entry-header">
+            
+                <h1 class="kratos-entry-title text-center" itemprop="name headline">ArchLinux_gui安装指南</h1>
+            
+            
+            <ul class="kratos-post-meta text-center">
+                <li><time datetime="2023-01-20T13:21:00.000Z" itemprop="datePublished"><i class="fa fa-calendar"></i> 2023-01-20</time></li>
+                <li itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <i class="fa fa-user"></i> 作者 <span itemprop="name">korin</span>
+                </li>
+                
+                    <li>
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            2.23K
+                        
+                        字
+                    </li>
+                
+                
+            </ul>
+        </header>
+        <div class="kratos-post-content">
+            
+            <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                <div class="icon"><i class="fa fa-warning"></i></div>
+                <div class="text"><p>本文最后编辑于 <time datetime="1694524637334"></time> 前，其中的内容可能需要更新。</p></div>
+            </div>
+            
+            
+            
+                <div class="kratos-post-inner-toc toc-div-class" >
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDArchLinux-gui"><span class="toc-number">1.1.</span> <span class="toc-text">下载ArchLinux_gui</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8U%E7%9B%98"><span class="toc-number">1.2.</span> <span class="toc-text">制作启动U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">BIOS设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ArchLinux"><span class="toc-number">2.</span> <span class="toc-text">安装ArchLinux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEArchLinux"><span class="toc-number">3.</span> <span class="toc-text">配置ArchLinux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pacman%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">pacman配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deb%E5%8C%85%E8%BD%ACarch%E5%8C%85"><span class="toc-number">3.2.</span> <span class="toc-text">deb包转arch包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">中文输入法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">4.</span> <span class="toc-text">其它</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.1.</span> <span class="toc-text">SSH远程连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96pacman%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">4.2.</span> <span class="toc-text">自动获取pacman镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-number">4.3.</span> <span class="toc-text">本地化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E5%8E%9Fflash%E7%B3%BB%E7%BB%9FU%E7%9B%98"><span class="toc-number">4.4.</span> <span class="toc-text">还原flash系统U盘</span></a></li></ol></li></ol>
+                </div>
+            
+            <hr />
+            <div itemprop="articleBody"><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Installation_guide">官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.mivm.cn/archlinux-installation-guide-simple">参考-米V米</a></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><h2 id="下载ArchLinux-gui"><a href="#下载ArchLinux-gui" class="headerlink" title="下载ArchLinux_gui"></a>下载ArchLinux_gui</h2><p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/osdn/arch-linux-gui/">下载地址</a></p>
+<div class="alert alert-warning"><div class="icon"><i class="fa fa-warning"></i></div><div class="text"><p>不要下载pure版本，pure是纯净版，不自带中文字体，会出现中文乱码</p>
+</div></div>
+
+<p>测试版本：archlinux-gui-plasma-2022.07-x86_64.iso</p>
+<h2 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h2><p><a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">下载balenaEtcher</a></p>
+<p>Flash from file选择ArchLinux_gui的iso文件</p>
+<p>Select target选择目标U盘</p>
+<h2 id="BIOS设置"><a href="#BIOS设置" class="headerlink" title="BIOS设置"></a>BIOS设置</h2><p>进入BIOS</p>
+<p>关闭安全启动：SecureBoot 设置为 Disabled（需要设置SecureBoot密码才可更改）</p>
+<p>将硬盘设置为AHCI模式：SATA Mode 设置为 AHCI Mode</p>
+<p>调整优先级，重启进入U盘系统</p>
+<h1 id="安装ArchLinux"><a href="#安装ArchLinux" class="headerlink" title="安装ArchLinux"></a>安装ArchLinux</h1><p>进入U盘的flash系统后，先连wifi</p>
+<p>开始菜单中，打开Install Arch Linux</p>
+<p>选择中文语言，接下来就是傻瓜式操作的安装过程，最后重启进入ArchLinux系统</p>
+<!-- 如果出现中文乱码的话，需要安装中文字体：
+
+1. 先编辑镜像列表：`sudo nano /etc/pacman.d/mirrorlist`
+2. 在顶端添加清华镜像：`Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch`
+3. 安装中文字体：`sudo pacman -Syu && sudo pacman -S ttf-dejavu wqy-zenhei wqy-microhei ttf-monaco` -->
+
+<h1 id="配置ArchLinux"><a href="#配置ArchLinux" class="headerlink" title="配置ArchLinux"></a>配置ArchLinux</h1><h2 id="pacman配置"><a href="#pacman配置" class="headerlink" title="pacman配置"></a>pacman配置</h2><p>pacman是一个软件安装器，具体使用说明可以参考<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Pacman">官方文档</a></p>
+<p>编辑pacman镜像列表：<code>nano /etc/pacman.d/mirrorlist</code></p>
+<p>在最顶端添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch</span><br></pre></td></tr></table></figure>
+
+<p>编辑pacman配置文件：<code>nano /etc/pacman.conf</code></p>
+<p>在最底端添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#中文社区仓库</span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
+
+<p>如果要启用multilib仓库，取消掉pacman.conf文件中<code>[multilib]</code>段落的注释</p>
+<p>获取archlinuxcn源密钥：<code>sudo pacman -S archlinuxcn-keyring</code></p>
+<p>滚动更新：<code>sudo pacman -Syu</code>一个命令即可升级整个系统，花费时间取决于系统有多老。这个命令还会同步本地软件仓库并升级系统的软件包</p>
+<p>如果要安装aur的包，可以使用yay，安装yay：<code>sudo pacman -S yay</code></p>
+<h2 id="deb包转arch包"><a href="#deb包转arch包" class="headerlink" title="deb包转arch包"></a>deb包转arch包</h2><p><a target="_blank" rel="noopener" href="https://linux.cn/article-9769-1.html">参考-linux中国</a></p>
+<p>安装debtap：<code>yay -S debtap</code></p>
+<p>编辑镜像配置：<code>nano /usr/bin/debtap</code></p>
+<p>把 <code>http://ftp.debian.org/debian/dists</code> 替换为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.ustc.edu.cn/debian/dists</span><br></pre></td></tr></table></figure>
+
+<p>把 <code>http://archive.ubuntu.com/ubuntu/dists</code> 替换为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://mirrors.ustc.edu.cn/ubuntu/dists</span><br></pre></td></tr></table></figure>
+
+<p>更新数据库（至少需要运行一次）：<code>sudo debtap -u</code></p>
+<p>使用方法：<code>sudo debtap xxxx.deb</code></p>
+<p>转换完成后，安装本地包：<code>sudo pacman -U xxx.tar.xz</code></p>
+<h2 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h2><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Fcitx5">fcitx5官方文档</a></p>
+<p>安装软件包组：<code>sudo pacman -S fcitx5-im</code></p>
+<p>安装：<code>sudo pacman -S fcitx5-chinese-addons</code></p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><h2 id="SSH远程连接"><a href="#SSH远程连接" class="headerlink" title="SSH远程连接"></a>SSH远程连接</h2><p>执行<code>ip -brief address</code>可以查看IP地址列表</p>
+<p>若无法连接，务必确保系统环境和 SSH 客户端处于同一局域网</p>
+<h2 id="自动获取pacman镜像源"><a href="#自动获取pacman镜像源" class="headerlink" title="自动获取pacman镜像源"></a>自动获取pacman镜像源</h2><p>Reflector是一个Python编写的脚本，会自动从 <code>https://archlinux.org/mirrors/status/</code> 上获取镜像地址，可以通过参数筛选出，自己需要的镜像地址，具体参考<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Reflector">官方文档</a></p>
+<p>安装Reflector：<code>sudo pacman -S reflector</code></p>
+<p>配置命令：</p>
+<div class="alert alert-warning"><div class="icon"><i class="fa fa-warning"></i></div><div class="text"><p>下述命令会覆盖文件，操作前请备份mirrorlist</p>
+</div></div>
+
+<p><code>sudo reflector --verbose -c China --latest 12 --sort rate --threads 100 --save /etc/pacman.d/mirrorlist</code></p>
+<p>意思是：选择在最近同步的，并且是位于中国的12个镜像，然后根据下载速度进行排序，最后将结果覆写到mirrorlist文件</p>
+<h2 id="本地化"><a href="#本地化" class="headerlink" title="本地化"></a>本地化</h2><p>设置时区：<code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code></p>
+<p>同步硬件时钟：<code>hwclock --systohc</code></p>
+<p>执行<code>nano /etc/locale.gen</code>编辑本地化配置文件，取消以下行段的注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#en_US.UTF-8 UTF-8</span><br><span class="line">#zh_CN.UTF-8 UTF-8</span><br><span class="line">#zh_TW.UTF-8 UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>设置默认本地化环境：<code>echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code>（为了确保兼容性，默认本地化环境最好是英语）</p>
+<h2 id="还原flash系统U盘"><a href="#还原flash系统U盘" class="headerlink" title="还原flash系统U盘"></a>还原flash系统U盘</h2><p>把U盘插入windows电脑</p>
+<p>右键计算机，进入磁盘管理工具，确定U盘的索引名称</p>
+<p>进入cmd，输入<code>diskpart</code></p>
+<p>输入<code>list disk</code>查看所有磁盘，<code>磁盘</code>右边的数字就是索引号</p>
+<p>输入<code>select disk 索引号</code></p>
+<div class="alert alert-warning"><div class="icon"><i class="fa fa-warning"></i></div><div class="text"><p>要确认无误</p>
+</div></div>
+
+<p>输入<code>clean</code>来清除</p>
+<p>快捷键win+s搜索<code>创建并格式化硬盘分区</code>进入磁盘管理工具</p>
+<p>给U盘新建简单卷格式化即可</p>
+</div>
+        </div>
+        
+            <div class="kratos-copyright text-center clearfix">
+                <h5 itemprop="copyrightNotice">本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+            </div>
+        
+        <footer class="kratos-entry-footer clearfix">
+            
+            <div class="footer-tag clearfix">
+                <div class="pull-left">
+                <i class="fa fa-tags"></i>
+                    <a class="tag-none-link" href="/tags/ArchLinux/" rel="tag">ArchLinux</a>, <a class="tag-none-link" href="/tags/linux/" rel="tag">linux</a>
+                </div>
+                <div class="pull-date">
+                    <time datetime="2023-09-12T13:17:17.334Z" itemprop="dateModified">最后编辑：2023-09-12</time>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+        <nav class="navigation post-navigation clearfix" role="navigation">
+            
+            <div class="nav-previous clearfix">
+                <a title=" 更改主板开机logo图标" href="/教程/更改主板开机logo图标/">&lt; 上一篇</a>
+            </div>
+            
+            
+            <div class="nav-next clearfix">
+                <a title=" 用IIS搭建FTP服务器" href="/教程/用IIS搭建FTP服务器/">下一篇 &gt;</a>
+            </div>
+            
+        </nav>
+    
+    
+</article>
+
+        
+
+            </section>
+
+        
+
+                
+            
+
+<style>
+    a:hover{
+        color:#ccc;
+    }
+</style>
+<section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+    <!-- 文章和页面根据splitter来分割，没有的话就从头开始设置为sticky -->
+    
+    
+                <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/favicon.webp" loading="lazy" decoding="auto" />
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <h3>Korin</h3>
+    </div>
+    <div class="textwidget">
+        <p class="text-center"></p>
+    </div>
+    <!-- <div class="site-meta">
+        <a class="meta-item" href="/archives/">
+            <span class="title">
+                文章
+            </span>
+            <span class="count">
+                20
+            </span>
+        </a>
+        <a class="meta-item" href="/categories/">
+            <span class="title">
+                分类
+            </span>
+            <span class="count">
+                5
+            </span>
+        </a>
+        <a class="meta-item" href="/tags/">
+            <span class="title">
+                标签
+            </span>
+            <span class="count">
+                12
+            </span>
+        </a>
+    </div> -->
+</aside>
+            
+                    <div class="sticky-area">
+                
+                    <aside id="krw-toc" class="widget widget-kratos-toc clearfix toc-div-class" >
+    <div class="photo-background"></div>
+    <h4 class="widget-title no-after">
+        <i class="fa fa-compass"></i>
+        文章目录
+        <span class="toc-progress-bar" role="progressbar" aria-label="阅读进度："></span>
+    </h4>
+    <div class="textwidget">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDArchLinux-gui"><span class="toc-text">下载ArchLinux_gui</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8U%E7%9B%98"><span class="toc-text">制作启动U盘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-text">BIOS设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ArchLinux"><span class="toc-text">安装ArchLinux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEArchLinux"><span class="toc-text">配置ArchLinux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pacman%E9%85%8D%E7%BD%AE"><span class="toc-text">pacman配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deb%E5%8C%85%E8%BD%ACarch%E5%8C%85"><span class="toc-text">deb包转arch包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-text">中文输入法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-text">其它</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5"><span class="toc-text">SSH远程连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96pacman%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">自动获取pacman镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%8C%96"><span class="toc-text">本地化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%98%E5%8E%9Fflash%E7%B3%BB%E7%BB%9FU%E7%9B%98"><span class="toc-text">还原flash系统U盘</span></a></li></ol></li></ol>
+    </div>
+</aside>
+                
+                
+<aside id="krw-categories" class="widget widget-kratos-categories clearfix">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
+  <!-- <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%89%E5%88%A9/">安利</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E5%B7%A7/">技巧</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%BA%90/">资源</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98/">问题</a><span class="category-list-count">4</span></li></ul> -->
+  <!-- kratosr.scss第2212行 -->
+  <ul class="category-list">
+    
+        <a class="category-list-link" href="/categories/技巧/"  style="padding-left: 8px;">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          <span style="padding-left: 8px;">技巧 (5)</span>
+        </a>
+    
+        <a class="category-list-link" href="/categories/安利/"  style="padding-left: 8px;">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          <span style="padding-left: 8px;">安利 (3)</span>
+        </a>
+    
+        <a class="category-list-link" href="/categories/资源/"  style="padding-left: 8px;">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          <span style="padding-left: 8px;">资源 (2)</span>
+        </a>
+    
+        <a class="category-list-link" href="/categories/问题/"  style="padding-left: 8px;">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          <span style="padding-left: 8px;">问题 (4)</span>
+        </a>
+    
+        <a class="category-list-link" href="/categories/教程/"  style="padding-left: 8px;">
+          <i class="fa fa-folder-o" aria-hidden="true"></i>
+          <span style="padding-left: 8px;">教程 (6)</span>
+        </a>
+    
+  </ul>
+</aside>
+<style>
+  a[class="category-list-link"] {
+    display: block;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  
+</style>
+
+            
+                
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/ArchLinux/" style="font-size: 0.6em;">ArchLinux</a> <a href="/tags/MIUI/" style="font-size: 0.65em;">MIUI</a> <a href="/tags/android/" style="font-size: 0.7em;">android</a> <a href="/tags/linux/" style="font-size: 0.65em;">linux</a> <a href="/tags/v2ray/" style="font-size: 0.6em;">v2ray</a> <a href="/tags/vue/" style="font-size: 0.6em;">vue</a> <a href="/tags/windows/" style="font-size: 0.8em;">windows</a> <a href="/tags/%E4%B8%BB%E6%9C%BA/" style="font-size: 0.6em;">主机</a> <a href="/tags/%E5%88%B7%E6%9C%BA/" style="font-size: 0.7em;">刷机</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.6em;">前端</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 0.75em;">应用程序</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 0.6em;">音乐</a>
+      </div>
+  </aside>
+
+            
+    </div>
+</section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        <!-- Keep for compatibility -->
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- New links -->
+                        
+                            <li>
+                                <a target="_blank" rel="nofollow" href="https://github.com/korin5">
+                                    
+                                        <i class="fa fa-github"></i>
+                                    
+                                </a>
+                            </li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 korin的个人博客 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Site built with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by korin.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box" style="display: none;">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch" style="display: none;">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="/vendors/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="/vendors/nprogress@0.2.0/nprogress.js"></script>
+<script>
+    if (!window.kr) {
+        window.kr = {};
+    }
+    window.kr.notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));
+    window.kr.siteRoot = "/";
+</script>
+
+
+    <script async src="/js/candy.min.js"></script>
+
+
+
+
+    <script defer src="/vendors/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+
+
+<!-- Extra support for third-party plguins  -->
+
+
+    </body>
+</html>
